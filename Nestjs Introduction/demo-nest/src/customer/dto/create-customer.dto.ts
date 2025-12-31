@@ -1,12 +1,15 @@
 /* eslint-disable prettier/prettier */
+import { ApiProperty } from "@nestjs/swagger";
 import { IsString } from "class-validator";
 
 export class CreateCustomerDto {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+     
+    @ApiProperty({ example: 'Raj' })
     @IsString()
     firstName: string;
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+    
+     @ApiProperty({ example: 'keshkar' })
     @IsString()
     lastName: string;
 

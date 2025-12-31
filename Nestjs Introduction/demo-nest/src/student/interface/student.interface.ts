@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-export interface Studnet{
-    id:number;
+export interface Student{
+    id:number
     name:string;
     age:number
 }

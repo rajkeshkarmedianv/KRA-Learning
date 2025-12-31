@@ -1,9 +1,16 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, UseInterceptors } from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { AuthGuard } from 'src/common/guards/auth.guards';
+import { SimpleInterceptor } from 'src/common/interceptors/simple.interceptors';
+//import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
+
+
+@UseGuards(AuthGuard)
+@UseInterceptors(SimpleInterceptor)
 @Controller('customer')
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
